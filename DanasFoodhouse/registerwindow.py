@@ -19,11 +19,11 @@ class Register(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
+        self.Background = QPixmap(r'Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -31,7 +31,7 @@ class Register(QWidget):
 
         # RegisterDanasImage
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\danaswinicon.png')
+        self.Background = QPixmap(r'Media Files\danaswinicon.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(325, 0)
         self.BackgroundHolder.resize(150, 150)
@@ -48,7 +48,7 @@ class Register(QWidget):
         self.regLabel.setStyleSheet("QLabel{"
                                     "font: 15pt Doppio One;"
                                     "color: #ffffff;}"
-                                    );
+                                    )
         self.regLabel.move(360, 165)
 
         # Create Username box
@@ -60,7 +60,7 @@ class Register(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       );
+                                       )
         self.usernamebox.move(365, 212)
         self.usernamebox.resize(165, 20)
         self.usernamebox.setMaxLength(15)
@@ -82,7 +82,7 @@ class Register(QWidget):
                                     "font-size: 12px;}"
                                     "QLineEdit:focus { "
                                     "background-color:rgb(0 0, 0,0);}"
-                                    );
+                                    )
         self.password.setEchoMode(QLineEdit.Password)
         self.password.move(365, 250)
         self.password.resize(165, 20)
@@ -103,7 +103,7 @@ class Register(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       );
+                                       )
         self.conpassword.setEchoMode(QLineEdit.Password)
         self.conpassword.move(410, 288)
         self.conpassword.resize(120, 20)

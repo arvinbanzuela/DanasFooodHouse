@@ -1,7 +1,7 @@
 import sys
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import  *
 import pymysql.cursors
-from PyQt5 import QtGui, QtCore
+from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtGui import *
 from PyQt5.QtCore import pyqtSlot
 
@@ -19,11 +19,11 @@ class Inventory(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
+        self.Background = QPixmap(r'Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -70,14 +70,14 @@ class Inventory(QWidget):
         self.createlabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       );
+                                       )
         self.createlabel.move(60, 175)
 
         self.pidlabel = QLabel('Product Code: ', self)
         self.pidlabel.setStyleSheet("QLabel{"
                                     "font: 10pt Doppio One;"
                                     "color: #ffffff;}"
-                                    );
+                                    )
         self.pidlabel.move(45, 220)
 
         self.pidbox = QLineEdit(self)
@@ -88,7 +88,7 @@ class Inventory(QWidget):
                                   "font-size: 12px;}"
                                   "QLineEdit:focus { "
                                   "background-color:rgb(0 0, 0,0);}"
-                                  );
+                                  )
         self.pidbox.move(45, 245)
         self.pidbox.resize(150, 20)
         self.pidbox.setMaxLength(15)
@@ -97,7 +97,7 @@ class Inventory(QWidget):
         self.prodnamelabel.setStyleSheet("QLabel{"
                                          "font: 10pt Doppio One;"
                                          "color: #ffffff;}"
-                                         );
+                                         )
         self.prodnamelabel.move(45, 270)
 
         self.prodnamebox = QLineEdit(self)
@@ -108,7 +108,7 @@ class Inventory(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       );
+                                       )
         self.prodnamebox.move(45, 295)
         self.prodnamebox.resize(150, 20)
         self.prodnamebox.setMaxLength(15)
@@ -117,7 +117,7 @@ class Inventory(QWidget):
         self.prodqtylabel.setStyleSheet("QLabel{"
                                         "font: 10pt Doppio One;"
                                         "color: #ffffff;}"
-                                        );
+                                        )
         self.prodqtylabel.move(45, 320)
 
         self.prodqtybox = QLineEdit(self)
@@ -128,7 +128,7 @@ class Inventory(QWidget):
                                       "font-size: 12px;}"
                                       "QLineEdit:focus { "
                                       "background-color:rgb(0 0, 0,0);}"
-                                      );
+                                      )
         self.prodqtybox.move(45, 345)
         self.prodqtybox.resize(150, 20)
         self.prodqtybox.setMaxLength(15)
@@ -138,7 +138,7 @@ class Inventory(QWidget):
         self.prodpricelabel.setStyleSheet("QLabel{"
                                           "font: 10pt Doppio One;"
                                           "color: #ffffff;}"
-                                          );
+                                          )
         self.prodpricelabel.move(45, 370)
 
         self.prodpricebox = QLineEdit(self)
@@ -149,7 +149,7 @@ class Inventory(QWidget):
                                         "font-size: 12px;}"
                                         "QLineEdit:focus { "
                                         "background-color:rgb(0 0, 0,0);}"
-                                        );
+                                        )
         self.prodpricebox.move(45, 395)
         self.prodpricebox.resize(150, 20)
         self.prodpricebox.setMaxLength(15)
@@ -170,7 +170,7 @@ class Inventory(QWidget):
         self.viewlabel.setStyleSheet("QLabel{"
                                      "font: 15pt Doppio One;"
                                      "color: #ffffff;}"
-                                     );
+                                     )
         self.viewlabel.move(230, 175)
 
         self.viewbutton = QPushButton('View', self)
@@ -186,14 +186,14 @@ class Inventory(QWidget):
         self.updatelabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       );
+                                       )
         self.updatelabel.move(397, 175)
 
         self.updateprodlabel = QLabel('Product Code: ', self)
         self.updateprodlabel.setStyleSheet("QLabel{"
                                           "font: 10pt Doppio One;"
                                           "color: #ffffff;}"
-                                          );
+                                          )
         self.updateprodlabel.move(395, 220)
 
         self.updateprodbox = QLineEdit(self)
@@ -204,7 +204,7 @@ class Inventory(QWidget):
                                          "font-size: 12px;}"
                                          "QLineEdit:focus { "
                                          "background-color:rgb(0 0, 0,0);}"
-                                         );
+                                         )
         self.updateprodbox.move(395, 245)
         self.updateprodbox.resize(150, 20)
         self.updateprodbox.setMaxLength(15)
@@ -213,7 +213,7 @@ class Inventory(QWidget):
         self.selectupdatelabel.setStyleSheet("QLabel{"
                                              "font: 10pt Doppio One;"
                                              "color: #ffffff;}"
-                                             );
+                                             )
         self.selectupdatelabel.move(395, 270)
 
         self.selectupdatebox = QComboBox(self)
@@ -225,7 +225,7 @@ class Inventory(QWidget):
                                            "font-size: 12px;}"
                                            "QLineEdit:focus { "
                                            "background-color:rgb(0 0, 0,0);}"
-                                           );
+                                           )
         self.selectupdatebox.addItem('...', ' ')
         self.selectupdatebox.addItem('Product Name')
         self.selectupdatebox.addItem('Quantity')
@@ -235,7 +235,7 @@ class Inventory(QWidget):
         self.updatedvaluelabel.setStyleSheet("QLabel{"
                                         "font: 10pt Doppio One;"
                                         "color: #ffffff;}"
-                                        );
+                                        )
         self.updatedvaluelabel.move(395, 320)
 
         self.updatedvaluebox = QLineEdit(self)
@@ -246,7 +246,7 @@ class Inventory(QWidget):
                                       "font-size: 12px;}"
                                       "QLineEdit:focus { "
                                       "background-color:rgb(0 0, 0,0);}"
-                                      );
+                                      )
         self.updatedvaluebox.move(395, 345)
         self.updatedvaluebox.resize(150, 20)
         self.updatedvaluebox.setMaxLength(15)
@@ -265,14 +265,14 @@ class Inventory(QWidget):
         self.deletelabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       );
+                                       )
         self.deletelabel.move(575, 175)
 
         self.deleteprodlabel = QLabel('Product Code: ', self)
         self.deleteprodlabel.setStyleSheet("QLabel{"
                                            "font: 10pt Doppio One;"
                                            "color: #ffffff;}"
-                                           );
+                                           )
         self.deleteprodlabel.move(570, 220)
 
         self.deleteprodbox = QLineEdit(self)
@@ -283,7 +283,7 @@ class Inventory(QWidget):
                                          "font-size: 12px;}"
                                          "QLineEdit:focus { "
                                          "background-color:rgb(0 0, 0,0);}"
-                                         );
+                                         )
         self.deleteprodbox.move(570, 245)
         self.deleteprodbox.resize(150, 20)
         self.deleteprodbox.setMaxLength(15)
@@ -304,6 +304,6 @@ class Inventory(QWidget):
 
 
 if __name__ == '__main__':
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     Main = Inventory()
     sys.exit(app.exec_())
