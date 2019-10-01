@@ -19,7 +19,7 @@ class Register(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)

@@ -27,7 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `accounts`
 --
-
+create database danasdb;
+use danasdb;
 CREATE TABLE `accounts` (
   `Username` varchar(15) NOT NULL,
   `Password` varchar(25) DEFAULT NULL

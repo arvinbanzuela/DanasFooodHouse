@@ -20,7 +20,7 @@ class Login(QMainWindow):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
@@ -118,15 +118,15 @@ class Login(QMainWindow):
         if (len(Username) == 0 or len(Password) == 0):
             Notblank = False
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Information)
+            self.msgbox.setIcon(QMessageBox.Warning)
             self.msgbox.setText("Please do not leave an empty field")
             self.msgbox.setWindowTitle("Cannot Log in!")
             self.msgbox.show()
 
         if (Notblank):
             connection = pymysql.connect(host='localhost',
-                                         user='root',
-                                         password='',
+                                         user='danasfoodhouse',
+                                         password='bunny47love',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -136,7 +136,7 @@ class Login(QMainWindow):
                                         (Username, Password))
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setIcon(QMessageBox.Warning)
                     self.msgbox.setText("Invalid Account!")
                     self.msgbox.setWindowTitle("Cannot Log in!")
                     self.msgbox.show()
@@ -164,7 +164,7 @@ class Register(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
@@ -308,16 +308,16 @@ class Register(QWidget):
                 break
 
         if (NotBlank):
-            if (len(Username) < 5):
+            if (len(Username) < 2):
                 self.msgbox = QMessageBox()
                 self.msgbox.setIcon(QMessageBox.Information)
-                self.msgbox.setText("Username must be atleast 5 characters")
+                self.msgbox.setText("Username must be atleast 2 characters")
                 self.msgbox.setWindowTitle("Failed to register!")
                 self.msgbox.show()
-            elif (len(Password) < 5):
+            elif (len(Password) < 2):
                 self.msgbox = QMessageBox()
                 self.msgbox.setIcon(QMessageBox.Information)
-                self.msgbox.setText("Password must be atleast 5 characters")
+                self.msgbox.setText("Password must be atleast 2 characters")
                 self.msgbox.setWindowTitle("Failed to register!")
                 self.msgbox.show()
             elif (Password != ConfirmPassword):
@@ -328,8 +328,8 @@ class Register(QWidget):
                 self.msgbox.show()
             else:
                 connection = pymysql.connect(host='localhost',
-                                             user='root',
-                                             password='',
+                                             user='danasfoodhouse',
+                                             password='bunny47love',
                                              db='danasdb',
                                              charset='utf8mb4',
                                              cursorclass=pymysql.cursors.DictCursor,
@@ -340,8 +340,8 @@ class Register(QWidget):
                         print('account already exist')
                     elif (result == 0):
                         connection = pymysql.connect(host='localhost',
-                                                     user='root',
-                                                     password='',
+                                                     user='danasfoodhouse',
+                                                     password='bunny47love',
                                                      db='danasdb',
                                                      charset='utf8mb4',
                                                      cursorclass=pymysql.cursors.DictCursor,
@@ -352,7 +352,7 @@ class Register(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Registration complete successfully!")
-                            self.msgbox.setWindowTitle("Succes!")
+                            self.msgbox.setWindowTitle("Success!")
                             self.msgbox.show()
                             self.newWindow = Login()
                             self.newWindow.show()
@@ -374,11 +374,11 @@ class Inventory(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
+        self.Background = QPixmap(r'Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -683,7 +683,7 @@ class Inventory(QWidget):
             if (len(i) == 0):
                 NotBlank = False
                 self.msgbox = QMessageBox()
-                self.msgbox.setIcon(QMessageBox.Information)
+                self.msgbox.setIcon(QMessageBox.Warning)
                 self.msgbox.setText("Do not leave an empty field")
                 self.msgbox.setWindowTitle("Cannot add the product")
                 self.msgbox.show()
@@ -692,8 +692,8 @@ class Inventory(QWidget):
             ProductQTY = int(ProductQTY)
             ProductPrice = int(ProductPrice)
             connection = pymysql.connect(host='localhost',
-                                         user='root',
-                                         password='',
+                                         user='danasfoodhouse',
+                                         password='bunny47love',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -704,15 +704,15 @@ class Inventory(QWidget):
                 if (result == 1):
 
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setIcon(QMessageBox.Warning)
                     self.msgbox.setText("Product already exist!")
                     self.msgbox.setWindowTitle("Cannot add the product")
                     self.msgbox.show()
 
                 else:
                     connection = pymysql.connect(host='localhost',
-                                                 user='root',
-                                                 password='',
+                                                 user='danasfoodhouse',
+                                                 password='bunny47love',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -724,7 +724,7 @@ class Inventory(QWidget):
                         self.msgbox = QMessageBox()
                         self.msgbox.setIcon(QMessageBox.Information)
                         self.msgbox.setText("Successfully added")
-                        self.msgbox.setWindowTitle("Cannot add the product")
+                        self.msgbox.setWindowTitle("Product Succesfully Added")
                         self.msgbox.show()
 
     # -----------------------END OF Function for Adding Products to the Database----------------------
@@ -760,14 +760,14 @@ class Inventory(QWidget):
         UpdatedValue = self.updatedvaluebox.text()
         if (len(ProductCode) == 0 or len(UpdatedValue) == 0):
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Information)
+            self.msgbox.setIcon(QMessageBox.Warning)
             self.msgbox.setText("Empty field")
             self.msgbox.setWindowTitle("Cannot update the product")
             self.msgbox.show()
         else:
             connection = pymysql.connect(host='localhost',
-                                         user='root',
-                                         password='',
+                                         user='danasfoodhouse',
+                                         password='bunny47love',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -777,15 +777,15 @@ class Inventory(QWidget):
 
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setIcon(QMessageBox.Warning)
                     self.msgbox.setText("Product not found!")
                     self.msgbox.setWindowTitle("Cannot update the product")
                     self.msgbox.show()
 
                 elif (result == 1):
                     connection = pymysql.connect(host='localhost',
-                                                 user='root',
-                                                 password='',
+                                                 user='danasfoodhouse',
+                                                 password='bunny47love',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -797,7 +797,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Congrats!")
+                            self.msgbox.setWindowTitle("Product Update")
                             self.msgbox.show()
                         elif UpdateSelect == 'Product Name':
                             cursor.execute('update products set product_name = %s where product_code = %s',(UpdatedValue, ProductCode))
@@ -805,7 +805,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Congrats!")
+                            self.msgbox.setWindowTitle("Product Update")
                             self.msgbox.show()
                         elif UpdateSelect == 'Price':
                             cursor.execute('update products set product_price = %s where product_code = %s',(int(UpdatedValue), ProductCode))
@@ -813,7 +813,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Congrats!")
+                            self.msgbox.setWindowTitle("Product Update")
                             self.msgbox.show()
 
     # -----------------------END OF Function for Updating Products to the Database----------------------
@@ -823,15 +823,15 @@ class Inventory(QWidget):
         NotBlank = True
         if (len(self.deleteprodbox.text()) == 0):
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Information)
+            self.msgbox.setIcon(QMessageBox.Warning)
             self.msgbox.setText("Do not leave an empyty field")
             self.msgbox.setWindowTitle("Cannot add the product")
             self.msgbox.show()
 
         elif (NotBlank):
             connection = pymysql.connect(host='localhost',
-                                         user='root',
-                                         password='',
+                                         user='danasfoodhouse',
+                                         password='bunny47love',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -841,15 +841,20 @@ class Inventory(QWidget):
 
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setIcon(QMessageBox.Warning)
                     self.msgbox.setText("Product not found!")
-                    self.msgbox.setWindowTitle("Cannot delete the product")
+                    self.msgbox.setWindowTitle("Error")
                     self.msgbox.show()
 
                 elif (result == 1):
+                    self.msgbox = QMessageBox()
+                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setText("Product Deleted Successfully !")
+                    self.msgbox.setWindowTitle("Product Deleted")
+                    self.msgbox.show()
                     connection = pymysql.connect(host='localhost',
-                                                 user='root',
-                                                 password='',
+                                                 user='danasfoodhouse',
+                                                 password='bunny47love',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -872,7 +877,7 @@ class Viewproducts(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
@@ -884,8 +889,8 @@ class Viewproducts(QWidget):
 
         # Connects Python to Mysql
         connection = pymysql.connect(host='localhost',
-                                     user='root',
-                                     password='',
+                                     user='danasfoodhouse',
+                                     password='bunny47love',
                                      db='danasdb',
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor,
@@ -925,3 +930,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     Main = Login()
     sys.exit(app.exec_())
+    

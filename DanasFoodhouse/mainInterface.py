@@ -19,7 +19,7 @@ class Inventory(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\winicon.png'))
+        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
@@ -62,10 +62,14 @@ class Inventory(QWidget):
         # ----------------------END OF FRAME SECTION -------------------------------------------
 
         # ----------------------INSIDE FRAME CONTENTS -CRUD-------------------------------------
+        # -------TABLE WIDGET TO EASILY VIEW DATA SET ------------------------------------------
+        '''self.createtableWidget = QTableWidget()
+        self.grid = QGridLayout()
+        self.grid.addWidget(self.createtableWidget,5,1)
+        self.setLayout(self.grid)'''
+        # -------SETS OF LABELS-----------------------------------------------------------------
 
-        # -------SETS OF LABELS--------------------------------------------------------------
-
-        # -------CREATE LABELS AND QLINEEDIT ----------------
+        # -------CREATE LABELS AND QLINEEDIT ---------------------------------------------------
         self.createlabel = QLabel('Add Products', self)
         self.createlabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
@@ -155,7 +159,7 @@ class Inventory(QWidget):
         self.prodpricebox.setMaxLength(15)
         self.prodpricebox.setValidator(QIntValidator())
 
-        self.addbutton = QPushButton('Add', self)
+        self.addbutton = QPushButton('Add Product', self)
         self.addbutton.setStyleSheet("QPushButton{ border: 2px solid #e6e6ff; border-radius: 10px;"
                                      "color: #ffccdd;"
                                      "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e60000, stop: 1 #EA485F);"
@@ -173,7 +177,7 @@ class Inventory(QWidget):
                                      )
         self.viewlabel.move(230, 175)
 
-        self.viewbutton = QPushButton('View', self)
+        self.viewbutton = QPushButton('View Product', self)
         self.viewbutton.setStyleSheet("QPushButton{ border: 2px solid #e6e6ff; border-radius: 10px;"
                                       "color: #ffccdd;"
                                       "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e60000, stop: 1 #EA485F);"
@@ -288,18 +292,17 @@ class Inventory(QWidget):
         self.deleteprodbox.resize(150, 20)
         self.deleteprodbox.setMaxLength(15)
 
-        self.deletebutton = QPushButton('Update', self)
+        self.deletebutton = QPushButton('Delete Product', self)
         self.deletebutton.setStyleSheet("QPushButton{ border: 2px solid #e6e6ff; border-radius: 10px;"
-                                        "color: #ffccdd;"
+                                        "color: #ffccdd;" ""
                                         "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e60000, stop: 1 #EA485F);"
-                                        "min-width: 80px;}"
+                                        "min-width: 100px;}"
                                         )
         self.deletebutton.move(600, 275)
 
         # -----------
 
         # ----------------------END OF --- INSIDE FRAME CONTENTS--CRUD--------------------------------------------
-
         self.show()
 
 
