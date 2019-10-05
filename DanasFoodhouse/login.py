@@ -12,7 +12,7 @@ class Login(QMainWindow):
     def __init__(self):
         super().__init__()
         self.title = 'Login'  # Window Title
-        self.initUI()
+        self.initUI()   
 
     def initUI(self):
         self.setWindowTitle(self.title)
