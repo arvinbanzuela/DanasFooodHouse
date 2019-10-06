@@ -1,8 +1,8 @@
 import sys
 from PyQt5.QtWidgets import  * 
 import pymysql.cursors
-from PyQt5.QtGui import * 
-from PyQt5 import QtGui, QtCore
+from PyQt5.QtGui import *
+from PyQt5 import QtGui, QtCore, uic
 from PyQt5.QtCore import pyqtSlot
 
 #This is a test git
@@ -140,7 +140,7 @@ class Login(QMainWindow):
                     self.msgbox.setText("Invalid Account!")
                     self.msgbox.setWindowTitle("Cannot Log in!")
                     self.msgbox.show()
-
+                    
                 else:
 
                     global loginaccount
@@ -149,7 +149,7 @@ class Login(QMainWindow):
                     self.newWindow.show()
                     self.hide()
 
-
+    
 # ------------------------------------Register Window-------------------------------
 class Register(QWidget):
 
@@ -361,6 +361,7 @@ class Register(QWidget):
         # Registerbuttonconnection MUST CREATE A FUCNTION FIRST FOR REGISTER WIDGET  self.registerbutton.clicked.connect(self.Register)
 
 
+# ================================== Inventory Window ===============================
 class Inventory(QWidget):
 
     def __init__(self):
@@ -863,7 +864,7 @@ class Inventory(QWidget):
                         cursor.execute('DELETE from products where product_code = %s;', (ProductCode))
                         connection.commit()
 
-
+# ==================================== ViewProducts
 class Viewproducts(QWidget):
 
     def __init__(self):
@@ -924,8 +925,8 @@ class Viewproducts(QWidget):
                 self.tableWidget.setItem(i, 3, QTableWidgetItem('{}'.format(productinfo['product_price'])))
 
                 self.show()
-
-
+        
+  
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     Main = Login()
