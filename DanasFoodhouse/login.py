@@ -1,11 +1,11 @@
 import sys
-from PyQt5.QtWidgets import  * 
+from PyQt5.QtWidgets import *
 import pymysql.cursors
-from PyQt5.QtGui import * 
 from PyQt5 import QtGui, QtCore
+from PyQt5.QtGui import QIcon, QPixmap, QIntValidator
 from PyQt5.QtCore import pyqtSlot
 
-#This is a test git
+
 # Login Window
 class Login(QMainWindow):
 
@@ -20,11 +20,11 @@ class Login(QMainWindow):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
+        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\winbackground.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -32,7 +32,7 @@ class Login(QMainWindow):
 
         # LoginDanasImage
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\danaswinicon.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\danaswinicon.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(175, 120)
         self.BackgroundHolder.resize(200, 200)
@@ -53,7 +53,7 @@ class Login(QMainWindow):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       )
+                                       );
         self.usernamebox.move(505, 197)
         self.usernamebox.resize(120, 20)
         self.usernamebox.setMaxLength(15)
@@ -73,7 +73,7 @@ class Login(QMainWindow):
                                     "font-size: 12px;}"
                                     "QLineEdit:focus { "
                                     "background-color:rgb(0 0, 0,0);}"
-                                    )
+                                    );
         self.password.setEchoMode(QLineEdit.Password)
         self.password.move(505, 235)
         self.password.resize(120, 20)
@@ -118,15 +118,15 @@ class Login(QMainWindow):
         if (len(Username) == 0 or len(Password) == 0):
             Notblank = False
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Warning)
+            self.msgbox.setIcon(QMessageBox.Information)
             self.msgbox.setText("Please do not leave an empty field")
             self.msgbox.setWindowTitle("Cannot Log in!")
             self.msgbox.show()
 
         if (Notblank):
             connection = pymysql.connect(host='localhost',
-                                         user='danasfoodhouse',
-                                         password='bunny47love',
+                                         user='root',
+                                         password='',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -136,7 +136,7 @@ class Login(QMainWindow):
                                         (Username, Password))
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Warning)
+                    self.msgbox.setIcon(QMessageBox.Information)
                     self.msgbox.setText("Invalid Account!")
                     self.msgbox.setWindowTitle("Cannot Log in!")
                     self.msgbox.show()
@@ -164,11 +164,11 @@ class Register(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
+        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\winbackground.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -176,7 +176,7 @@ class Register(QWidget):
 
         # RegisterDanasImage
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\danaswinicon.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\danaswinicon.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(325, 0)
         self.BackgroundHolder.resize(150, 150)
@@ -193,7 +193,7 @@ class Register(QWidget):
         self.regLabel.setStyleSheet("QLabel{"
                                     "font: 15pt Doppio One;"
                                     "color: #ffffff;}"
-                                    )
+                                    );
         self.regLabel.move(360, 165)
 
         # Create Username box
@@ -205,7 +205,7 @@ class Register(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       )
+                                       );
         self.usernamebox.move(365, 212)
         self.usernamebox.resize(165, 20)
         self.usernamebox.setMaxLength(15)
@@ -227,7 +227,7 @@ class Register(QWidget):
                                     "font-size: 12px;}"
                                     "QLineEdit:focus { "
                                     "background-color:rgb(0 0, 0,0);}"
-                                    )
+                                    );
         self.password.setEchoMode(QLineEdit.Password)
         self.password.move(365, 250)
         self.password.resize(165, 20)
@@ -248,7 +248,7 @@ class Register(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       )
+                                       );
         self.conpassword.setEchoMode(QLineEdit.Password)
         self.conpassword.move(410, 288)
         self.conpassword.resize(120, 20)
@@ -308,16 +308,16 @@ class Register(QWidget):
                 break
 
         if (NotBlank):
-            if (len(Username) < 2):
+            if (len(Username) < 5):
                 self.msgbox = QMessageBox()
                 self.msgbox.setIcon(QMessageBox.Information)
-                self.msgbox.setText("Username must be atleast 2 characters")
+                self.msgbox.setText("Username must be atleast 5 characters")
                 self.msgbox.setWindowTitle("Failed to register!")
                 self.msgbox.show()
-            elif (len(Password) < 2):
+            elif (len(Password) < 5):
                 self.msgbox = QMessageBox()
                 self.msgbox.setIcon(QMessageBox.Information)
-                self.msgbox.setText("Password must be atleast 2 characters")
+                self.msgbox.setText("Password must be atleast 5 characters")
                 self.msgbox.setWindowTitle("Failed to register!")
                 self.msgbox.show()
             elif (Password != ConfirmPassword):
@@ -328,8 +328,8 @@ class Register(QWidget):
                 self.msgbox.show()
             else:
                 connection = pymysql.connect(host='localhost',
-                                             user='danasfoodhouse',
-                                             password='bunny47love',
+                                             user='root',
+                                             password='',
                                              db='danasdb',
                                              charset='utf8mb4',
                                              cursorclass=pymysql.cursors.DictCursor,
@@ -340,8 +340,8 @@ class Register(QWidget):
                         print('account already exist')
                     elif (result == 0):
                         connection = pymysql.connect(host='localhost',
-                                                     user='danasfoodhouse',
-                                                     password='bunny47love',
+                                                     user='root',
+                                                     password='',
                                                      db='danasdb',
                                                      charset='utf8mb4',
                                                      cursorclass=pymysql.cursors.DictCursor,
@@ -352,7 +352,7 @@ class Register(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Registration complete successfully!")
-                            self.msgbox.setWindowTitle("Success!")
+                            self.msgbox.setWindowTitle("Succes!")
                             self.msgbox.show()
                             self.newWindow = Login()
                             self.newWindow.show()
@@ -374,11 +374,11 @@ class Inventory(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
+        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\winbackground.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -425,14 +425,14 @@ class Inventory(QWidget):
         self.createlabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       )
+                                       );
         self.createlabel.move(60, 175)
 
         self.prodcodelabel = QLabel('Product Code: ', self)
         self.prodcodelabel.setStyleSheet("QLabel{"
                                          "font: 10pt Doppio One;"
                                          "color: #ffffff;}"
-                                         )
+                                         );
         self.prodcodelabel.move(45, 220)
 
         self.prodcodebox = QLineEdit(self)
@@ -443,7 +443,7 @@ class Inventory(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       )
+                                       );
         self.prodcodebox.move(45, 245)
         self.prodcodebox.resize(150, 20)
         self.prodcodebox.setMaxLength(15)
@@ -452,7 +452,7 @@ class Inventory(QWidget):
         self.prodnamelabel.setStyleSheet("QLabel{"
                                          "font: 10pt Doppio One;"
                                          "color: #ffffff;}"
-                                         )
+                                         );
         self.prodnamelabel.move(45, 270)
 
         self.prodnamebox = QLineEdit(self)
@@ -463,7 +463,7 @@ class Inventory(QWidget):
                                        "font-size: 12px;}"
                                        "QLineEdit:focus { "
                                        "background-color:rgb(0 0, 0,0);}"
-                                       )
+                                       );
         self.prodnamebox.move(45, 295)
         self.prodnamebox.resize(150, 20)
         self.prodnamebox.setMaxLength(15)
@@ -472,7 +472,7 @@ class Inventory(QWidget):
         self.prodqtylabel.setStyleSheet("QLabel{"
                                         "font: 10pt Doppio One;"
                                         "color: #ffffff;}"
-                                        )
+                                        );
         self.prodqtylabel.move(45, 320)
 
         self.prodqtybox = QLineEdit(self)
@@ -483,7 +483,7 @@ class Inventory(QWidget):
                                       "font-size: 12px;}"
                                       "QLineEdit:focus { "
                                       "background-color:rgb(0 0, 0,0);}"
-                                      )
+                                      );
         self.prodqtybox.move(45, 345)
         self.prodqtybox.resize(150, 20)
         self.prodqtybox.setMaxLength(15)
@@ -493,7 +493,7 @@ class Inventory(QWidget):
         self.prodpricelabel.setStyleSheet("QLabel{"
                                           "font: 10pt Doppio One;"
                                           "color: #ffffff;}"
-                                          )
+                                          );
         self.prodpricelabel.move(45, 370)
 
         self.prodpricebox = QLineEdit(self)
@@ -504,7 +504,7 @@ class Inventory(QWidget):
                                         "font-size: 12px;}"
                                         "QLineEdit:focus { "
                                         "background-color:rgb(0 0, 0,0);}"
-                                        )
+                                        );
         self.prodpricebox.move(45, 395)
         self.prodpricebox.resize(150, 20)
         self.prodpricebox.setMaxLength(15)
@@ -526,7 +526,7 @@ class Inventory(QWidget):
         self.viewlabel.setStyleSheet("QLabel{"
                                      "font: 15pt Doppio One;"
                                      "color: #ffffff;}"
-                                     )
+                                     );
         self.viewlabel.move(230, 175)
 
         self.viewbutton = QPushButton('View', self)
@@ -544,14 +544,14 @@ class Inventory(QWidget):
         self.updatelabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       )
+                                       );
         self.updatelabel.move(397, 175)
 
         self.updateprodlabel = QLabel('Product Code: ', self)
         self.updateprodlabel.setStyleSheet("QLabel{"
                                            "font: 10pt Doppio One;"
                                            "color: #ffffff;}"
-                                           )
+                                           );
         self.updateprodlabel.move(395, 220)
 
         self.updateprodbox = QLineEdit(self)
@@ -562,7 +562,7 @@ class Inventory(QWidget):
                                          "font-size: 12px;}"
                                          "QLineEdit:focus { "
                                          "background-color:rgb(0 0, 0,0);}"
-                                         )
+                                         );
         self.updateprodbox.move(395, 245)
         self.updateprodbox.resize(150, 20)
         self.updateprodbox.setMaxLength(15)
@@ -571,7 +571,7 @@ class Inventory(QWidget):
         self.selectupdatelabel.setStyleSheet("QLabel{"
                                              "font: 10pt Doppio One;"
                                              "color: #ffffff;}"
-                                             )
+                                             );
         self.selectupdatelabel.move(395, 270)
 
         self.selectupdatebox = QComboBox(self)
@@ -583,7 +583,7 @@ class Inventory(QWidget):
                                            "font-size: 12px;}"
                                            "QLineEdit:focus { "
                                            "background-color:rgb(0 0, 0,0);}"
-                                           )
+                                           );
         self.selectupdatebox.addItem('...')
         self.selectupdatebox.addItem('Product Name')
         self.selectupdatebox.addItem('Quantity')
@@ -594,7 +594,7 @@ class Inventory(QWidget):
         self.updatedvaluelabel.setStyleSheet("QLabel{"
                                              "font: 10pt Doppio One;"
                                              "color: #ffffff;}"
-                                             )
+                                             );
         self.updatedvaluelabel.move(395, 320)
 
         self.updatedvaluebox = QLineEdit(self)
@@ -605,7 +605,7 @@ class Inventory(QWidget):
                                            "font-size: 12px;}"
                                            "QLineEdit:focus { "
                                            "background-color:rgb(0 0, 0,0);}"
-                                           )
+                                           );
         self.updatedvaluebox.move(395, 345)
         self.updatedvaluebox.resize(150, 20)
         self.updatedvaluebox.setMaxLength(15)
@@ -627,14 +627,14 @@ class Inventory(QWidget):
         self.deletelabel.setStyleSheet("QLabel{"
                                        "font: 15pt Doppio One;"
                                        "color: #ffffff;}"
-                                       )
+                                       );
         self.deletelabel.move(575, 175)
 
         self.deleteprodlabel = QLabel('Product Code: ', self)
         self.deleteprodlabel.setStyleSheet("QLabel{"
                                            "font: 10pt Doppio One;"
                                            "color: #ffffff;}"
-                                           )
+                                           );
         self.deleteprodlabel.move(570, 220)
 
         self.deleteprodbox = QLineEdit(self)
@@ -645,7 +645,7 @@ class Inventory(QWidget):
                                          "font-size: 12px;}"
                                          "QLineEdit:focus { "
                                          "background-color:rgb(0 0, 0,0);}"
-                                         )
+                                         );
         self.deleteprodbox.move(570, 245)
         self.deleteprodbox.resize(150, 20)
         self.deleteprodbox.setMaxLength(15)
@@ -664,7 +664,7 @@ class Inventory(QWidget):
         self.createlabel.setStyleSheet("QLabel{"
                                        "font: 25pt Doppio One;"
                                        "color: #ffffff;}"
-                                       )
+                                       );
         self.createlabel.move(285, 50)
         self.show()
         # ----------------------------------------
@@ -683,7 +683,7 @@ class Inventory(QWidget):
             if (len(i) == 0):
                 NotBlank = False
                 self.msgbox = QMessageBox()
-                self.msgbox.setIcon(QMessageBox.Warning)
+                self.msgbox.setIcon(QMessageBox.Information)
                 self.msgbox.setText("Do not leave an empty field")
                 self.msgbox.setWindowTitle("Cannot add the product")
                 self.msgbox.show()
@@ -692,8 +692,8 @@ class Inventory(QWidget):
             ProductQTY = int(ProductQTY)
             ProductPrice = int(ProductPrice)
             connection = pymysql.connect(host='localhost',
-                                         user='danasfoodhouse',
-                                         password='bunny47love',
+                                         user='root',
+                                         password='',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -704,15 +704,15 @@ class Inventory(QWidget):
                 if (result == 1):
 
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Warning)
+                    self.msgbox.setIcon(QMessageBox.Information)
                     self.msgbox.setText("Product already exist!")
                     self.msgbox.setWindowTitle("Cannot add the product")
                     self.msgbox.show()
 
                 else:
                     connection = pymysql.connect(host='localhost',
-                                                 user='danasfoodhouse',
-                                                 password='bunny47love',
+                                                 user='root',
+                                                 password='',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -724,7 +724,7 @@ class Inventory(QWidget):
                         self.msgbox = QMessageBox()
                         self.msgbox.setIcon(QMessageBox.Information)
                         self.msgbox.setText("Successfully added")
-                        self.msgbox.setWindowTitle("Product Succesfully Added")
+                        self.msgbox.setWindowTitle("Cannot add the product")
                         self.msgbox.show()
 
     # -----------------------END OF Function for Adding Products to the Database----------------------
@@ -760,14 +760,14 @@ class Inventory(QWidget):
         UpdatedValue = self.updatedvaluebox.text()
         if (len(ProductCode) == 0 or len(UpdatedValue) == 0):
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Warning)
+            self.msgbox.setIcon(QMessageBox.Information)
             self.msgbox.setText("Empty field")
             self.msgbox.setWindowTitle("Cannot update the product")
             self.msgbox.show()
         else:
             connection = pymysql.connect(host='localhost',
-                                         user='danasfoodhouse',
-                                         password='bunny47love',
+                                         user='root',
+                                         password='',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -777,15 +777,15 @@ class Inventory(QWidget):
 
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Warning)
+                    self.msgbox.setIcon(QMessageBox.Information)
                     self.msgbox.setText("Product not found!")
                     self.msgbox.setWindowTitle("Cannot update the product")
                     self.msgbox.show()
 
                 elif (result == 1):
                     connection = pymysql.connect(host='localhost',
-                                                 user='danasfoodhouse',
-                                                 password='bunny47love',
+                                                 user='root',
+                                                 password='',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -797,7 +797,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Product Update")
+                            self.msgbox.setWindowTitle("Congrats!")
                             self.msgbox.show()
                         elif UpdateSelect == 'Product Name':
                             cursor.execute('update products set product_name = %s where product_code = %s',(UpdatedValue, ProductCode))
@@ -805,7 +805,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Product Update")
+                            self.msgbox.setWindowTitle("Congrats!")
                             self.msgbox.show()
                         elif UpdateSelect == 'Price':
                             cursor.execute('update products set product_price = %s where product_code = %s',(int(UpdatedValue), ProductCode))
@@ -813,7 +813,7 @@ class Inventory(QWidget):
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
                             self.msgbox.setText("Updated Successfully")
-                            self.msgbox.setWindowTitle("Product Update")
+                            self.msgbox.setWindowTitle("Congrats!")
                             self.msgbox.show()
 
     # -----------------------END OF Function for Updating Products to the Database----------------------
@@ -823,15 +823,15 @@ class Inventory(QWidget):
         NotBlank = True
         if (len(self.deleteprodbox.text()) == 0):
             self.msgbox = QMessageBox()
-            self.msgbox.setIcon(QMessageBox.Warning)
+            self.msgbox.setIcon(QMessageBox.Information)
             self.msgbox.setText("Do not leave an empyty field")
             self.msgbox.setWindowTitle("Cannot add the product")
             self.msgbox.show()
 
         elif (NotBlank):
             connection = pymysql.connect(host='localhost',
-                                         user='danasfoodhouse',
-                                         password='bunny47love',
+                                         user='root',
+                                         password='',
                                          db='danasdb',
                                          charset='utf8mb4',
                                          cursorclass=pymysql.cursors.DictCursor,
@@ -841,20 +841,15 @@ class Inventory(QWidget):
 
                 if (result == 0):
                     self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Warning)
+                    self.msgbox.setIcon(QMessageBox.Information)
                     self.msgbox.setText("Product not found!")
-                    self.msgbox.setWindowTitle("Error")
+                    self.msgbox.setWindowTitle("Cannot delete the product")
                     self.msgbox.show()
 
                 elif (result == 1):
-                    self.msgbox = QMessageBox()
-                    self.msgbox.setIcon(QMessageBox.Information)
-                    self.msgbox.setText("Product Deleted Successfully !")
-                    self.msgbox.setWindowTitle("Product Deleted")
-                    self.msgbox.show()
                     connection = pymysql.connect(host='localhost',
-                                                 user='danasfoodhouse',
-                                                 password='bunny47love',
+                                                 user='root',
+                                                 password='',
                                                  db='danasdb',
                                                  charset='utf8mb4',
                                                  cursorclass=pymysql.cursors.DictCursor,
@@ -877,11 +872,11 @@ class Viewproducts(QWidget):
         self.setStyleSheet(
             'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
         self.setFixedSize(self.size())
-        self.setWindowIcon(QIcon(r'Media Files\danaswinicon.png'))
+        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'Media Files\winbackground.png')
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -889,8 +884,8 @@ class Viewproducts(QWidget):
 
         # Connects Python to Mysql
         connection = pymysql.connect(host='localhost',
-                                     user='danasfoodhouse',
-                                     password='bunny47love',
+                                     user='root',
+                                     password='',
                                      db='danasdb',
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor,
@@ -930,4 +925,3 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     Main = Login()
     sys.exit(app.exec_())
-    
