@@ -378,7 +378,7 @@ class Inventory(QWidget):
 
         # Background
         self.BackgroundHolder = QLabel(self)
-        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
+        self.Background = QPixmap(r'Media Files\winbackground.png')
         self.BackgroundHolder.setPixmap(self.Background)
         self.BackgroundHolder.move(0, 0)
         self.BackgroundHolder.resize(795, 525)
@@ -386,12 +386,13 @@ class Inventory(QWidget):
 
         # ----------------------FRAME SECTION -------------------------------------------
 
-        # CREATE-FRAME------------------------------------------------------------------------------------------
+        # CREATE-FRAME-AND-ICON------------------------------------------------------------------------------------------
 
         self.createframe = QFrame(self)
         self.createframe.setFrameShape(QFrame.StyledPanel)
-        self.createframe.setStyleSheet("background-color:  #540f35")
-        self.createframe.setGeometry(40, 150, 160, 320)
+        self.createframe.setStyleSheet("background-color: rgba(255, 255, 255, 60);")
+        self.createframe.setGeometry(20, 30, 750, 50)
+
 
         # VIEW--FRAME------------------------------------------------------------------------------------------
 
@@ -421,103 +422,22 @@ class Inventory(QWidget):
         # -------SETS OF LABELS--------------------------------------------------------------
 
         # -------CREATE LABELS AND QLINEEDIT ----------------
-        self.createlabel = QLabel('Add Products', self)
-        self.createlabel.setStyleSheet("QLabel{"
-                                       "font: 15pt Doppio One;"
-                                       "color: #ffffff;}"
-                                       );
-        self.createlabel.move(60, 175)
 
-        self.prodcodelabel = QLabel('Product Code: ', self)
-        self.prodcodelabel.setStyleSheet("QLabel{"
-                                         "font: 10pt Doppio One;"
-                                         "color: #ffffff;}"
-                                         );
-        self.prodcodelabel.move(45, 220)
+        self.BackgroundHolder = QLabel(self)
+        self.Background = QPixmap(r'Media Files\add_icon.png')
+        self.BackgroundHolder.setPixmap(self.Background)
+        self.BackgroundHolder.move(40, 30)
+        self.BackgroundHolder.resize(35, 35)
+        self.BackgroundHolder.setScaledContents(True)
+        # ----------------------
+        self.addbutton1 = QPushButton('', self)
+        self.addbutton1.setStyleSheet("QPushButton{ border: 1px solid #e6e6ff; border-radius: 5px;"
+                                      "color: #000000;"
+                                      "background-color: (255,255,255,0.5);"
+                                      "min-height: 30px; min-width:50;}")
 
-        self.prodcodebox = QLineEdit(self)
-        self.prodcodebox.setStyleSheet("QLineEdit{ "
-                                       "border: 2px white;"
-                                       "border-radius: 5px;"
-                                       "padding: 0 8px;"
-                                       "font-size: 12px;}"
-                                       "QLineEdit:focus { "
-                                       "background-color:rgb(0 0, 0,0);}"
-                                       );
-        self.prodcodebox.move(45, 245)
-        self.prodcodebox.resize(150, 20)
-        self.prodcodebox.setMaxLength(15)
-
-        self.prodnamelabel = QLabel('Product Name: ', self)
-        self.prodnamelabel.setStyleSheet("QLabel{"
-                                         "font: 10pt Doppio One;"
-                                         "color: #ffffff;}"
-                                         );
-        self.prodnamelabel.move(45, 270)
-
-        self.prodnamebox = QLineEdit(self)
-        self.prodnamebox.setStyleSheet("QLineEdit{ "
-                                       "border: 2px white;"
-                                       "border-radius: 5px;"
-                                       "padding: 0 8px;"
-                                       "font-size: 12px;}"
-                                       "QLineEdit:focus { "
-                                       "background-color:rgb(0 0, 0,0);}"
-                                       );
-        self.prodnamebox.move(45, 295)
-        self.prodnamebox.resize(150, 20)
-        self.prodnamebox.setMaxLength(15)
-
-        self.prodqtylabel = QLabel('QTY: ', self)
-        self.prodqtylabel.setStyleSheet("QLabel{"
-                                        "font: 10pt Doppio One;"
-                                        "color: #ffffff;}"
-                                        );
-        self.prodqtylabel.move(45, 320)
-
-        self.prodqtybox = QLineEdit(self)
-        self.prodqtybox.setStyleSheet("QLineEdit{ "
-                                      "border: 2px white;"
-                                      "border-radius: 5px;"
-                                      "padding: 0 8px;"
-                                      "font-size: 12px;}"
-                                      "QLineEdit:focus { "
-                                      "background-color:rgb(0 0, 0,0);}"
-                                      );
-        self.prodqtybox.move(45, 345)
-        self.prodqtybox.resize(150, 20)
-        self.prodqtybox.setMaxLength(15)
-        self.prodqtybox.setValidator(QIntValidator())
-
-        self.prodpricelabel = QLabel('Product Price: ', self)
-        self.prodpricelabel.setStyleSheet("QLabel{"
-                                          "font: 10pt Doppio One;"
-                                          "color: #ffffff;}"
-                                          );
-        self.prodpricelabel.move(45, 370)
-
-        self.prodpricebox = QLineEdit(self)
-        self.prodpricebox.setStyleSheet("QLineEdit{ "
-                                        "border: 2px white;"
-                                        "border-radius: 5px;"
-                                        "padding: 0 8px;"
-                                        "font-size: 12px;}"
-                                        "QLineEdit:focus { "
-                                        "background-color:rgb(0 0, 0,0);}"
-                                        );
-        self.prodpricebox.move(45, 395)
-        self.prodpricebox.resize(150, 20)
-        self.prodpricebox.setMaxLength(15)
-        self.prodpricebox.setValidator(QIntValidator())
-
-        self.addbutton = QPushButton('Add', self)
-        self.addbutton.setStyleSheet("QPushButton{ border: 2px solid #e6e6ff; border-radius: 10px;"
-                                     "color: #ffccdd;"
-                                     "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e60000, stop: 1 #EA485F);"
-                                     "min-width: 80px;}"
-                                     )
-        self.addbutton.move(75, 430)
-        self.addbutton.clicked.connect(self.Add)
+        self.addbutton1.move(35, 40)
+        self.addbutton1.clicked.connect(self.addproducts)
 
         # -------VIEW LABELS AND QLINEEDIT ----------------
 
@@ -730,6 +650,11 @@ class Inventory(QWidget):
     # -----------------------END OF Function for Adding Products to the Database----------------------
 
     # ----------------------Function for Viewing Products to the Database----------------------
+
+    def addproducts(self):
+        self.newWindow = Addproducts()
+        self.newWindow.show()
+
     def View(self):
         self.newWindow = Viewproducts()
         self.newWindow.show()
@@ -792,7 +717,8 @@ class Inventory(QWidget):
                                                  port=3306)
                     with connection.cursor() as cursor:
                         if UpdateSelect == 'Quantity':
-                            cursor.execute('update products set product_qty = %s where product_code = %s',(int(UpdatedValue), ProductCode))
+                            cursor.execute('update products set product_qty = %s where product_code = %s',
+                                           (int(UpdatedValue), ProductCode))
                             connection.commit()
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
@@ -800,7 +726,8 @@ class Inventory(QWidget):
                             self.msgbox.setWindowTitle("Congrats!")
                             self.msgbox.show()
                         elif UpdateSelect == 'Product Name':
-                            cursor.execute('update products set product_name = %s where product_code = %s',(UpdatedValue, ProductCode))
+                            cursor.execute('update products set product_name = %s where product_code = %s',
+                                           (UpdatedValue, ProductCode))
                             connection.commit()
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
@@ -808,7 +735,8 @@ class Inventory(QWidget):
                             self.msgbox.setWindowTitle("Congrats!")
                             self.msgbox.show()
                         elif UpdateSelect == 'Price':
-                            cursor.execute('update products set product_price = %s where product_code = %s',(int(UpdatedValue), ProductCode))
+                            cursor.execute('update products set product_price = %s where product_code = %s',
+                                           (int(UpdatedValue), ProductCode))
                             connection.commit()
                             self.msgbox = QMessageBox()
                             self.msgbox.setIcon(QMessageBox.Information)
@@ -858,6 +786,188 @@ class Inventory(QWidget):
                         cursor.execute('DELETE from products where product_code = %s;', (ProductCode))
                         connection.commit()
 
+
+class Addproducts(QWidget):
+
+    def __init__(self):
+        super().__init__()
+        self.title = 'DANAS-INVENTORY'  # Window Title
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle(self.title)
+        self.setGeometry(260, 100, 795, 525)  # Window Size
+        self.setStyleSheet(
+            'QPushButton,QLabel,QLineEdit {font: 10pt Doppio One}')  # Changes Font for Whole Window for QPushButton, QLabel, and QlineEdit
+        self.setFixedSize(self.size())
+        self.setWindowIcon(QIcon(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winicon.png'))
+
+        # Background
+        self.BackgroundHolder = QLabel(self)
+        self.Background = QPixmap(r'C:\Users\XcomPh\Desktop\New folder (2)\ProjectDanas\Media Files\winbackground.png')
+        self.BackgroundHolder.setPixmap(self.Background)
+        self.BackgroundHolder.move(0, 0)
+        self.BackgroundHolder.resize(795, 525)
+        self.BackgroundHolder.setScaledContents(True)
+        # -------CREATE LABELS AND QLINEEDIT ----------------
+        self.createlabel = QLabel('Add Products', self)
+        self.createlabel.setStyleSheet("QLabel{"
+                                       "font: 15pt Doppio One;"
+                                       "color: #ffffff;}"
+                                       );
+        self.createlabel.move(60, 175)
+
+        self.prodcodelabel = QLabel('Product Code: ', self)
+        self.prodcodelabel.setStyleSheet("QLabel{"
+                                         "font: 10pt Doppio One;"
+                                         "color: #ffffff;}"
+                                         );
+        self.prodcodelabel.move(45, 220)
+
+        self.prodcodebox = QLineEdit(self)
+        self.prodcodebox.setStyleSheet("QLineEdit{ "
+                                       "border: 2px white;"
+                                       "border-radius: 5px;"
+                                       "padding: 0 8px;"
+                                       "font-size: 12px;}"
+                                       "QLineEdit:focus { "
+                                       "background-color:rgb(0 0, 0,0);}"
+                                       );
+        self.prodcodebox.move(45, 245)
+        self.prodcodebox.resize(150, 20)
+        self.prodcodebox.setMaxLength(15)
+
+        self.prodnamelabel = QLabel('Product Name: ', self)
+        self.prodnamelabel.setStyleSheet("QLabel{"
+                                         "font: 10pt Doppio One;"
+                                         "color: #ffffff;}"
+                                         );
+        self.prodnamelabel.move(45, 270)
+
+        self.prodnamebox = QLineEdit(self)
+        self.prodnamebox.setStyleSheet("QLineEdit{ "
+                                       "border: 2px white;"
+                                       "border-radius: 5px;"
+                                       "padding: 0 8px;"
+                                       "font-size: 12px;}"
+                                       "QLineEdit:focus { "
+                                       "background-color:rgb(0 0, 0,0);}"
+                                       );
+        self.prodnamebox.move(45, 295)
+        self.prodnamebox.resize(150, 20)
+        self.prodnamebox.setMaxLength(15)
+
+        self.prodqtylabel = QLabel('QTY: ', self)
+        self.prodqtylabel.setStyleSheet("QLabel{"
+                                        "font: 10pt Doppio One;"
+                                        "color: #ffffff;}"
+                                        );
+        self.prodqtylabel.move(45, 320)
+
+        self.prodqtybox = QLineEdit(self)
+        self.prodqtybox.setStyleSheet("QLineEdit{ "
+                                      "border: 2px white;"
+                                      "border-radius: 5px;"
+                                      "padding: 0 8px;"
+                                      "font-size: 12px;}"
+                                      "QLineEdit:focus { "
+                                      "background-color:rgb(0 0, 0,0);}"
+                                      );
+        self.prodqtybox.move(45, 345)
+        self.prodqtybox.resize(150, 20)
+        self.prodqtybox.setMaxLength(15)
+        self.prodqtybox.setValidator(QIntValidator())
+
+        self.prodpricelabel = QLabel('Product Price: ', self)
+        self.prodpricelabel.setStyleSheet("QLabel{"
+                                          "font: 10pt Doppio One;"
+                                          "color: #ffffff;}"
+                                          );
+        self.prodpricelabel.move(45, 370)
+
+        self.prodpricebox = QLineEdit(self)
+        self.prodpricebox.setStyleSheet("QLineEdit{ "
+                                        "border: 2px white;"
+                                        "border-radius: 5px;"
+                                        "padding: 0 8px;"
+                                        "font-size: 12px;}"
+                                        "QLineEdit:focus { "
+                                        "background-color:rgb(0 0, 0,0);}"
+                                        );
+        self.prodpricebox.move(45, 395)
+        self.prodpricebox.resize(150, 20)
+        self.prodpricebox.setMaxLength(15)
+        self.prodpricebox.setValidator(QIntValidator())
+
+        self.addbutton = QPushButton('Add', self)
+        self.addbutton.setStyleSheet("QPushButton{ border: 2px solid #e6e6ff; border-radius: 10px;"
+                                     "color: #ffccdd;"
+                                     "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e60000, stop: 1 #EA485F);"
+                                     "min-width: 80px;}"
+                                     )
+        self.addbutton.move(75, 430)
+        self.addbutton.clicked.connect(self.Add)
+
+    # ----------------------Function for Adding Products to the Database--------------------------------------
+
+    def Add(self):
+
+        ProductCode = self.prodcodebox.text()
+        ProductName = self.prodnamebox.text()
+        ProductQTY = self.prodqtybox.text()
+        ProductPrice = self.prodpricebox.text()
+        ProductInfo = (ProductCode, ProductName, ProductQTY, ProductPrice)
+        NotBlank = True
+        for i in ProductInfo:
+            if (len(i) == 0):
+                NotBlank = False
+                self.msgbox = QMessageBox()
+                self.msgbox.setIcon(QMessageBox.Information)
+                self.msgbox.setText("Do not leave an empty field")
+                self.msgbox.setWindowTitle("Cannot add the product")
+                self.msgbox.show()
+                break
+        if (NotBlank):
+            ProductQTY = int(ProductQTY)
+            ProductPrice = int(ProductPrice)
+            connection = pymysql.connect(host='localhost',
+                                         user='root',
+                                         password='',
+                                         db='danasdb',
+                                         charset='utf8mb4',
+                                         cursorclass=pymysql.cursors.DictCursor,
+                                         port=3306)
+            with connection.cursor() as cursor:
+                result = cursor.execute('select * from products where product_code = %s;', (ProductCode))
+
+                if (result == 1):
+
+                    self.msgbox = QMessageBox()
+                    self.msgbox.setIcon(QMessageBox.Information)
+                    self.msgbox.setText("Product already exist!")
+                    self.msgbox.setWindowTitle("Cannot add the product")
+                    self.msgbox.show()
+
+                else:
+                    connection = pymysql.connect(host='localhost',
+                                                 user='root',
+                                                 password='',
+                                                 db='danasdb',
+                                                 charset='utf8mb4',
+                                                 cursorclass=pymysql.cursors.DictCursor,
+                                                 port=3306)
+                    with connection.cursor() as cursor:
+                        cursor.execute('insert into products values(%s,%s,%s,%s);',
+                                       (ProductCode, ProductName, ProductQTY, ProductPrice))
+                        connection.commit()
+                        self.msgbox = QMessageBox()
+                        self.msgbox.setIcon(QMessageBox.Information)
+                        self.msgbox.setText("Successfully added")
+                        self.msgbox.setWindowTitle("Cannot add the product")
+                        self.msgbox.show()
+
+
+# -----------------------END OF Function for Adding Products to the Database----------------------
 
 class Viewproducts(QWidget):
 
