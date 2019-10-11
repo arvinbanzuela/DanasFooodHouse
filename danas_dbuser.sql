@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `danasdb`
+-- Database: `foodhouse`
 --
-CREATE DATABASE IF NOT EXISTS `danasdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `danasdb`;
+CREATE DATABASE IF NOT EXISTS `foodhouse` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `foodhouse`;
 
 -- --------------------------------------------------------
 
@@ -77,10 +77,10 @@ ALTER TABLE `accounts`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_code`);
 --
--- Database: `danasfoodhouse`
+-- Database: `root`
 --
-CREATE DATABASE IF NOT EXISTS `danasfoodhouse` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `danasfoodhouse`;
+CREATE DATABASE IF NOT EXISTS `root` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `root`;
 --
 -- Database: `mydb_banzuelajognodanas`
 --

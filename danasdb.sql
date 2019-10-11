@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `danasdb`
+-- Database: `foodhouse`
 --
 
 -- --------------------------------------------------------
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `accounts`
 --
-create database danasdb;
-use danasdb;
+create database foodhouse;
+use foodhouse;
 CREATE TABLE `accounts` (
   `Username` varchar(15) NOT NULL,
   `Password` varchar(25) DEFAULT NULL
